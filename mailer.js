@@ -31,7 +31,7 @@ async function sendNotifications(contact) {
     transporter.sendMail({
       from: `"Bamex Crue" <${process.env.SMTP_USER}>`, to: contact.email, replyTo: process.env.COMPANY_EMAIL,
       subject: `We received your message — ${ref}`,
-      text: `Hi ${contact.name},\n\nThank you for contacting Bamex Crue. We've received your ${label.toLowerLowerCase()} request.\n\nReference: ${ref}\nWhatsApp: ${process.env.COMPANY_PHONE}\nEmail: ${process.env.COMPANY_EMAIL}`,
+      text: `Hi ${contact.name},\n\nThank you for contacting Bamex Crue. We've received your ${label.toLowerCase()} request and will respond shortly.\n\nYour reference number: ${ref}\nPlease quote it if you call or WhatsApp us at ${process.env.COMPANY_PHONE}.\n\nWhat you sent:\n${contact.message}\n\n— The Bamex Crue team\nWhatsApp: ${process.env.COMPANY_PHONE}\nEmail: ${process.env.COMPANY_EMAIL}`,
     }).catch(err => console.error('Customer email failed:', err.message)),
   ]);
 }
